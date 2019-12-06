@@ -2,11 +2,101 @@
 
 height: 400px;
 width: 	800px;
+margin-left: 360px;
 
 
 }
 
 #inventoryItem{
 padding-left: 50px;
+padding-bottom: 50px;
 
+}
+
+body{
+
+background-color: grey;	
+}
+
+#title{
+text-align: center;
+}
+
+#description{
+text-align: center;
+}
+
+#game-buttons{
+margin-left: 560px;
+
+}
+
+
+#button1 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #484848;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+#button1:hover {background-color: #303030}
+
+#button1:active {
+  background-color: #303030;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#button2 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #484848;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+#button2:hover {background-color: #303030}
+
+#button2:active {
+  background-color: 303030;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#button3 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #484848;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+#button3:hover {background-color: #303030}
+
+#button3:active {
+  background-color: #303030;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }

@@ -3,6 +3,26 @@ var zwaard = false
 
 var enchanted = false 
 
+
+
+
+
+//////////////
+function start(){
+title.innerHTML = "The woods";
+document.getElementById("description").style.visibility = "hidden";
+document.getElementById("button1").innerHTML = "Start";
+document.getElementById("button1").setAttribute("onclick", "begin();");
+document.getElementById("button2").style.visibility = "hidden"
+document.getElementById("button3").style.visibility = "hidden"
+document.getElementById("inventoryItem").style.visibility = "hidden"
+document.getElementById("img").src = "images/start.jpg";
+}
+
+
+
+
+
 //////////////////
 
 function begin() {
@@ -15,26 +35,62 @@ function begin() {
 	document.getElementById("button2").style.visibility = "visible"
 	document.getElementById("button3").innerHTML = "keuze 3";
 	document.getElementById("button3").setAttribute("onclick", "rechtsaf();");
-	document.getElementById("button3").style.visibility = "visible"
-
+	document.getElementById("button3").style.visibility = "visible";
+    document.getElementById("description").style.visibility = "visible";
 	document.getElementById("img").src = "images/begin.bos.png";
-	document.getElementById("inventoryItem").style.visibility = "hidden"
+	document.getElementById("inventoryItem").style.visibility = "hidden";
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 ////////////
 function naarHuis() {
 	title.innerHTML = "title1";
-	document.getElementById("description").innerHTML = "1) Volg de weg naar huis <br> 2) rechtdoor <br> 3) naar rechts";
+	document.getElementById("description").innerHTML = "1) Loop langs de ridder <br> 2) Praat met de ridder <br> 3) Terug";
 	document.getElementById("button1").innerHTML = "keuze 1";
-	document.getElementById("button1").setAttribute("onclick", "naarHuis();");
+	document.getElementById("button1").setAttribute("onclick", "ridderdood();");
 	document.getElementById("button2").innerHTML = "keuze 2";
-	document.getElementById("button2").setAttribute("onclick", "rechtdoor();");
+	document.getElementById("button2").setAttribute("onclick", "praat();");
 	document.getElementById("button3").innerHTML = "keuze 3";
-	document.getElementById("button3").setAttribute("onclick", "rechtsaf();");
+	document.getElementById("button3").setAttribute("onclick", "begin();");
 
-	document.getElementById("img").src = "images/begin.bos.png";
+	document.getElementById("img").src = "images/ridder.path.jpg";
 	document.getElementById("inventoryItem").style.visibility = "hidden"
 }
+
+function ridderdood(){
+document.getElementById("description").innerHTML = "De ridder vertrouwde het niet en heeft je dood gestoken. <br> <br>";	
+document.getElementById("button1").innerHTML = "Restart";
+document.getElementById("button1").setAttribute("onclick", "begin();");
+document.getElementById("button3").style.visibility = "hidden"
+document.getElementById("button2").style.visibility = "hidden"
+document.getElementById("img").src = "images/died.jpg";
+}
+
+
+function praat(){
+alert("Je verteld de ridder dat wat je is overkomen en dat je probeert naar je huis te komen")
+alert("De ridder weet niet precies de weg, maar hij verteld je dat er iemand in het bos is die dat wel zal weten")	
+document.getElementById("description").innerHTML = "1) De weg van de ridder gebruiken <br> 2) Terug <br>";
+document.getElementById("button1").innerHTML = "keuze 1";
+document.getElementById("button1").setAttribute("onclick", "rivier();");
+document.getElementById("button2").innerHTML = "keuze 2";
+document.getElementById("button2").setAttribute("onclick", "begin();");
+document.getElementById("button3").style.visibility = "hidden";
+}
+
+
+function rivier(){}
 
 
 
@@ -213,19 +269,38 @@ if (zwaard == false) {
 else{ 
 	document.getElementById("description").innerHTML = "De trol is dood, je kunt er nu langs. <br><br> 1)Loop door <br> 2)Ga terug";
     document.getElementById("img").src = "images/dode.trol.jpg";
+
+    document.getElementById("button1").innerHTML = "keuze 1";
+	document.getElementById("button1").setAttribute("onclick", "dorp();");
+	document.getElementById("button2").innerHTML = "keuze 2";
+	document.getElementById("button2").setAttribute("onclick", "enchant();");
+
 }
 }
 
 
 function dorp(){
+	document.getElementById("description").innerHTML = "De trol is dood, je kunt er nu langs. <br><br> 1)Naar het dorp lopen <br> 2)Het dorp in rennen <br> 3)Ga terug";
+    document.getElementById("button1").innerHTML = "keuze 1";
+	document.getElementById("button1").setAttribute("onclick", "lopen();");
+	document.getElementById("button2").innerHTML = "keuze 2";
+	document.getElementById("button2").setAttribute("onclick", "rechtdoor();");
+	document.getElementById("button2").style.visibility = "visible"
+	document.getElementById("img").src = "images/dorp.jpg";
+}
 
+////// keuze 3 showen, doorgaan na het enchanted zonder zwaard, keuze links
 
-
-
+function lopen(){
+document.getElementById("description").innerHTML = "Je loopt langzaam het dorp binnen en bent eindelijk terug bij beschaving";
+document.getElementById("img").src = "images/in.dorp.jpg";
 }
 
 
+function rennen(){
 
+
+}
 
 
 
@@ -256,18 +331,59 @@ function dorp(){
 	title.innerHTML = "title1";
 	document.getElementById("description").innerHTML = "1) Vecht met de wolven <br> 2) Vlucht voor de wolven <br> 3) Blijf staan";
 	document.getElementById("button1").innerHTML = "keuze 1";
-	document.getElementById("button1").setAttribute("onclick", "naarHuis();");
+	document.getElementById("button1").setAttribute("onclick", "dood1();");
 	document.getElementById("button2").innerHTML = "keuze 2";
-	document.getElementById("button2").setAttribute("onclick", "rechtdoor();");
+	document.getElementById("button2").setAttribute("onclick", "cliff();");
 	document.getElementById("button3").innerHTML = "keuze 3";
-	document.getElementById("button3").setAttribute("onclick", "rechtsaf();");
+	document.getElementById("button3").setAttribute("onclick", "dood2();");
 
 	document.getElementById("img").src = "images/wolven.jpg"; 
 }
 
+function dood1(){
+	title.style.visibility = "hidden";
+document.getElementById("description").innerHTML = "De wolven zijn met te veel, je maakt geen schijn van kans";
+document.getElementById("img").src = "images/died.jpg"; 
+document.getElementById("button3").style.visibility = "hidden";
+document.getElementById("button2").style.visibility = "hidden";
+document.getElementById("button1").innerHTML = "restart";
+document.getElementById("button1").setAttribute("onclick", "begin();");
+}
+
+function cliff(){
+    document.getElementById("description").innerHTML = "1) Spring van de cliff <br> 2)Met de wolven vechten ";
+	document.getElementById("button1").innerHTML = "keuze 1";
+	document.getElementById("button1").setAttribute("onclick", "springen();");
+	document.getElementById("button2").innerHTML = "keuze 2";
+	document.getElementById("button2").setAttribute("onclick", "dood1();");
+	document.getElementById("button3").style.visibility = "hidden";;
+	document.getElementById("img").src = "images/cliff.jpg"; 
+}
+
+function springen(){
+
+document.getElementById("description").innerHTML = "Het is te hoog <br> Je valt dood op de grond";
+document.getElementById("img").src = "images/died.jpg";
+document.getElementById("button2").style.visibility = "hidden";
+document.getElementById("button1").innerHTML = "restart";
+document.getElementById("button1").setAttribute("onclick", "begin();");
 
 
-begin();
+}
+
+function dood2(){ 
+	title.style.visibility = "hidden";
+document.getElementById("description").innerHTML = "De wolven zien je als een lekkere snack. <br> Je word opgegeten.";
+document.getElementById("img").src = "images/died.jpg"; 
+document.getElementById("button3").style.visibility = "hidden";
+document.getElementById("button2").style.visibility = "hidden";
+document.getElementById("button1").innerHTML = "restart";
+document.getElementById("button1").setAttribute("onclick", "begin();");
+}
+
+
+
+start();
 
 
 
