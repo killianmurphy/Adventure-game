@@ -3,7 +3,9 @@ var zwaard = false
 
 var enchanted = false 
 
+var axe = false
 
+var wachtwoord = true
 
 
 
@@ -11,9 +13,9 @@ var enchanted = false
 function start(){
 title.innerHTML = "The woods";
 document.getElementById("description").style.visibility = "hidden";
-document.getElementById("button1").innerHTML = "Start";
-document.getElementById("button1").setAttribute("onclick", "begin();");
-document.getElementById("button2").style.visibility = "hidden"
+document.getElementById("button2").innerHTML = "Start";
+document.getElementById("button2").setAttribute("onclick", "begin();");
+document.getElementById("button1").style.visibility = "hidden"
 document.getElementById("button3").style.visibility = "hidden"
 document.getElementById("inventoryItem").style.visibility = "hidden"
 document.getElementById("img").src = "images/start.jpg";
@@ -30,6 +32,7 @@ function begin() {
 	document.getElementById("description").innerHTML = "1) Volg de weg naar huis <br> 2) rechtdoor <br> 3) naar rechts";
 	document.getElementById("button1").innerHTML = "keuze 1";
 	document.getElementById("button1").setAttribute("onclick", "naarHuis();");
+	document.getElementById("button1").style.visibility = "visible"
 	document.getElementById("button2").innerHTML = "keuze 2";
 	document.getElementById("button2").setAttribute("onclick", "rechtdoor();");
 	document.getElementById("button2").style.visibility = "visible"
@@ -55,7 +58,7 @@ function begin() {
 
 ////////////
 function naarHuis() {
-	title.innerHTML = "title1";
+	title.innerHTML = "Ridder";
 	document.getElementById("description").innerHTML = "1) Loop langs de ridder <br> 2) Praat met de ridder <br> 3) Terug";
 	document.getElementById("button1").innerHTML = "keuze 1";
 	document.getElementById("button1").setAttribute("onclick", "ridderdood();");
@@ -69,6 +72,7 @@ function naarHuis() {
 }
 
 function ridderdood(){
+title.innerHTML = "";
 document.getElementById("description").innerHTML = "De ridder vertrouwde het niet en heeft je dood gestoken. <br> <br>";	
 document.getElementById("button1").innerHTML = "Restart";
 document.getElementById("button1").setAttribute("onclick", "begin();");
@@ -90,20 +94,99 @@ document.getElementById("button3").style.visibility = "hidden";
 }
 
 
-function rivier(){}
+function rivier(){
+title.innerHTML = "De rivier";
+document.getElementById("description").innerHTML = "Je komt aan bij een rivieer, Wat ga je doen? <br> 1) Proberen over te steken <br> 2) Hakbijl pakken <br> 3) Terug <br>";
+document.getElementById("button1").innerHTML = "keuze 1";
+document.getElementById("button1").setAttribute("onclick", "rivierdood();");
+document.getElementById("button2").innerHTML = "keuze 2";
+document.getElementById("button2").setAttribute("onclick", "bijl();");
+document.getElementById("button3").innerHTML = "keuze 3";
+document.getElementById("button3").setAttribute("onclick", "naarHuis();");
+document.getElementById("button3").style.visibility = "visible";
+document.getElementById("img").src = "images/rivier.jpg";
+}
 
 
+function rivierdood(){
+
+title.innerHTML = "You died";
+document.getElementById("description").innerHTML = "Je haalde het niet om te springen en de stroming was te hard om te zwemmen <br> <br>";
+document.getElementById("button1").style.visibility = "hidden";
+document.getElementById("button3").style.visibility = "hidden";
+document.getElementById("button2").innerHTML = "Restart";
+document.getElementById("button2").setAttribute("onclick", "begin();");
+document.getElementById("img").src = "images/died.jpg";
 
 
+}
+
+function bijl(){
+axe = true;
+    alert("Je hebt de bijl opgepakt")
+    document.getElementById("description").innerHTML = "1) Proberen over te steken <br> 2) Boom omhakken <br> 3) Terug";
+	document.getElementById("button1").innerHTML = "keuze 1";
+	document.getElementById("button1").setAttribute("onclick", "rivierdood();");
+	document.getElementById("button2").innerHTML = "keuze 2";
+	document.getElementById("button2").setAttribute("onclick", "boom();");
+	document.getElementById("button3").innerHTML = "keuze 3";
+	document.getElementById("button3").setAttribute("onclick", "naarHuis();");
+	document.getElementById("button3").style.visibility = "visible";
+	document.getElementById("img").src = "images/rivier.zonder.jpg";
+	document.getElementById("inventoryItem").style.visibility = "visible";
+	document.getElementById("inventoryItem").src = "images/bijl.webp"
+}
+
+function boom(){
+document.getElementById("description").innerHTML = "1) Veilig oversteken <br> 2) Terug";
+document.getElementById("button1").innerHTML = "keuze 1";
+document.getElementById("button1").setAttribute("onclick", "bosman();");
+document.getElementById("button2").innerHTML = "keuze 2";
+document.getElementById("button2").setAttribute("onclick", "naarHuis();");
+document.getElementById("button3").style.visibility = "hidden";
+document.getElementById("img").src = "images/rivier2.jpg";	
+}
 
 
+function bosman(){
+	title.innerHTML = "Man in het bos";
+document.getElementById("description").innerHTML = "1) De man vragen om de weg naar het kasteel <br> 2) De man onthoofden <br> 3) Terug";
+document.getElementById("button1").innerHTML = "keuze 1";
+document.getElementById("button1").setAttribute("onclick", "vragen();");
+document.getElementById("button2").innerHTML = "keuze 2";
+document.getElementById("button2").setAttribute("onclick", "onthoofd();");
+document.getElementById("button3").innerHTML = "keuze 3";
+document.getElementById("button3").setAttribute("onclick", "rivier();");
+document.getElementById("button3").style.visibility = "visible";
+document.getElementById("img").src = "images/normaal.pad2.jpg";	
+}
 
+function vragen(){
+wachtwoord = true
+alert("Je vraagt de man of hij de weg naar het kasteel kan vinden")	
+alert("De man verteld je hoe je thuis zult komen")
+document.getElementById("button1").innerHTML = "keuze 1";
+document.getElementById("button1").setAttribute("onclick", "vragen();");
+document.getElementById("button2").innerHTML = "keuze 2";
+document.getElementById("button2").setAttribute("onclick", "onthoofd();");
+document.getElementById("button3").innerHTML = "keuze 3";
+document.getElementById("button3").setAttribute("onclick", "rivier();");
+}
 
+function onthoofd(){
+document.getElementById("img").src = "images/onthoofd.pad2.jpg";
+}
 
+function kasteel(){
+title.innerHTML = "Ingang van het kasteel";
 
+document.getElementById("img").src = "images/kasteel.jpg";
+}
 
-
-
+function kasteeldorp(){
+title.innerHTML = "Gewonnen!";
+document.getElementById("img").src = "images/stad.jpg";
+}
 
 
 
